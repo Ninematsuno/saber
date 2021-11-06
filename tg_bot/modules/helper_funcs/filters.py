@@ -1,18 +1,18 @@
 from telegram import Message
-from telegram.ext import MessageFilter
+from telegram.ext import BaseFilter
 
 from tg_bot import DEV_USERS, SUPPORT_USERS, SUDO_USERS
 
 
 class CustomFilters():
-    class _Supporters(MessageFilter):
+    class _Supporters(BaseFilter):
         @staticmethod
         def filter(message: Message):
             return bool(message.from_user and message.from_user.id in SUPPORT_USERS)
 
     support_filter = _Supporters()
 
-    class _Sudoers(MessageFilter):
+    class _Sudoers(BaseFilter):
         @staticmethod
         def filter(message: Message):
             return bool(message.from_user and message.from_user.id in SUDO_USERS)
@@ -20,7 +20,7 @@ class CustomFilters():
     sudo_filter = _Sudoers()
 
 
-    class _Developers(MessageFilter):
+    class _Developers(BaseFilter):
         @staticmethod
         def filter(message: Message):
             return bool(message.from_user and message.from_user.id in DEV_USERS)
@@ -28,7 +28,7 @@ class CustomFilters():
     dev_filter = _Developers()
 
 
-    class _MimeType(MessageFilter):
+    class _MimeType(BaseFilter):
         def __init__(self, mimetype):
             self.mime_type = mimetype
             self.name = "CustomFilters.mime_type({})".format(self.mime_type)
@@ -40,7 +40,7 @@ class CustomFilters():
 
     mime_type = _MimeType
 
-    class _HasText(MessageFilter):
+    class _HasText(BaseFilter):
         @staticmethod
         def filter(message: Message):
             return bool(
