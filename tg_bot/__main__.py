@@ -28,6 +28,7 @@ Hɪ ᴛʜᴇʀᴇ {}, ᴍʏ ɴᴀᴍᴇ ɪs [ᴍᴇɢᴜᴍɪɴ.](https://telegr
 """
 
 
+BOT_IMG = "https://telegra.ph/file/98cb413468829dc59a74c.mp4"
 
 
 
@@ -141,7 +142,7 @@ def start(update, context):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_animation(
-                
+                BOT_IMG,
                 caption=PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(context.bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
