@@ -28,7 +28,7 @@ Hɪ ᴛʜᴇʀᴇ {}, ᴍʏ ɴᴀᴍᴇ ɪs [ᴍᴇɢᴜᴍɪɴ.](https://telegr
 """
 
 
-BOT_IMG = "[megumin](https://telegra.ph/file/a0ea136304a0d21076325.jpg)"
+BOT_IMG = "https://telegra.ph/file/3a32c70b7323e13b5c04a.mp4
 
 
 
