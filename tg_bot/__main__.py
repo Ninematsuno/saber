@@ -543,6 +543,17 @@ def is_chat_allowed(update, context):
 
 
 def main():
+
+    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
+        try:
+            dispatcher.bot.sendMessage("@megumin_support_chat", "[Megumi IS BACK ONLINE⚡](https://telegra.ph/file/3a32c70b7323e13b5c04a.mp4)",parse_mode = ParseMode.MARKDOWN ),
+
+        except Unauthorized:
+            LOGGER.warning(
+                "Bot isnt able to send message to SUPPORT_CHAT, go and check!"
+            )
+        except BadRequest as e:
+            LOGGER.warning(e.message)
     # test_handler = CommandHandler("test", test)
     start_handler = CommandHandler("start", start, pass_args=True)
 
